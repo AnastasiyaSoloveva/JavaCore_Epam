@@ -1,4 +1,4 @@
-package com.java_epam.CodingBat.Warmup1;
+package java_epam.CodingBat.Warmup1;
 
 
 public class Warmup1 {
