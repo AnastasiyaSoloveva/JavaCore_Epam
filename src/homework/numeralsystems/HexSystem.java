@@ -10,7 +10,6 @@ public class HexSystem {
         char c = '\u0000';
         while (a != 0 ){
             b = a % 16;
-            b = a % 16;
             if (b > 9) {
                 if (b == 10) {
                     c = 'a'; // a
