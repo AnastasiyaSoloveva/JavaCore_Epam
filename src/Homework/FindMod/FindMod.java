@@ -1,4 +1,4 @@
-package Homework.FindMod;
+package homework.findmod;
 
 
 public class FindMod {

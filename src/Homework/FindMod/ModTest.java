@@ -1,7 +1,7 @@
-package Homework.FindMod;
+package homework.findmod;
 
 
-import Classwork.lesson172406.SimpleUnit;
+import mytestframework.SimpleUnit;
 
 public class ModTest {
     public static void main(String[] args) {

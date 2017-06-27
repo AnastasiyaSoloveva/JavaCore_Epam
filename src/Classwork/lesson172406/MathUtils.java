@@ -1,4 +1,4 @@
-package Classwork.lesson172406;
+package classwork.lesson172406;
 
 
 public class MathUtils {

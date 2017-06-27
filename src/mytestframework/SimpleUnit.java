@@ -1,4 +1,4 @@
-package Classwork.lesson172406;
+package mytestframework;
 
 
 public class SimpleUnit {
@@ -33,4 +33,8 @@ public class SimpleUnit {
         }
         return notEquals;
     }
+
+
+
+
 }

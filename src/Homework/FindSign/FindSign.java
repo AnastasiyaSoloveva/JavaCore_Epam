@@ -1,4 +1,4 @@
-package Homework.FindSign;
+package homework.findsign;
 
 
 public class FindSign {

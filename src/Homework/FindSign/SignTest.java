@@ -1,7 +1,7 @@
-package Homework.FindSign;
+package homework.findsign;
 
 
-import Classwork.lesson172406.SimpleUnit;
+import mytestframework.SimpleUnit;
 
 public class SignTest {
     public static void main(String[] args) {
@@ -16,6 +16,8 @@ public class SignTest {
 
         System.out.println(SimpleUnit.assertEquals(FindSign.sign(0),0));
         System.out.println(SimpleUnit.assertNotEquals(FindSign.sign(0),1));
+
+
 
 
 
