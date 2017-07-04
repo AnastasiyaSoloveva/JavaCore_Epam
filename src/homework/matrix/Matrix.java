@@ -29,12 +29,11 @@ public class Matrix {
     }
 
     private static void countSum(int[][] matrix) {
-        int sum = 0;
        OUTER: for (int i = 0; i < matrix.length; i++) {
-            int[] row = matrix[i];
+           int sum = 0;
+           int[] row = matrix[i];
             for (int j = 0; j < row.length; j++) {
                 if (row[j] < 0) {
-                    sum = 0;
                     continue OUTER;
                 }
                 sum += row[j];
