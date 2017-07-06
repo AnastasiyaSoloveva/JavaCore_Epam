@@ -22,6 +22,9 @@ public class PrintArray {
     // вывод массива на печать в виде  [0, 1, 2]
     private static void printArray(int[] array) {
         System.out.print("[");
+        if (array.length == 0) {
+            System.out.println("]");
+        }
         for (int i = 0; i < array.length; i ++) {
             if (i == array.length-1){
                 System.out.println(array[array.length-1] + "]");
