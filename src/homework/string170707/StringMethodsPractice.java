@@ -32,5 +32,18 @@ public class StringMethodsPractice {
         return s.substring(start, stop + 1);
 
     }
+
+    public static String replace(String s, char oldChar , char  newChar) {
+        if (s == null || s.length() == 0) {
+            return s;
+        }
+        if (oldChar == newChar) {
+            return s;
+        }
+
+
+
+        return s;
+    }
 }
 

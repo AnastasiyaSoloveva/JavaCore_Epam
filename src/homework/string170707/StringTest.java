@@ -25,6 +25,10 @@ public class StringTest {
 
 
 
+        System.out.println(SimpleUnit.assertEquals(StringMethodsPractice.replace(s2, 'H','H'),s2));
+
+
+
 
     }
 }
