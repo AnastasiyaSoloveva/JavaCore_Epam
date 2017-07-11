@@ -1,6 +1,9 @@
 package classwork.lesson170710;
 
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class UseStringLinkedList {
     public static void main(String[] args) {
 
@@ -24,9 +27,17 @@ public class UseStringLinkedList {
 
         System.out.println(list);
 
+        list.add("cat");
+        list.add("dog");
+        list.add("rat");
 
+        System.out.println(list);
+        System.out.println(list.remove(2));
+        System.out.println(list);
 
-
+        System.out.println(list.remove(4));
+        System.out.println(list.remove(1));
+        System.out.println(list);
 
 
 
