@@ -1,11 +1,7 @@
 package homework.array170707;
 
 
-import homework.array170707.StringArrayList;
 
-/**
- * Created by glokkolt on 07.07.17.
- */
 public class UseStringArrayList {
 
     public static void main(String[] args) {
@@ -22,16 +18,32 @@ public class UseStringArrayList {
         System.out.println(list);
 
         list.add("three");
-
         System.out.println(list);
+
         list.add("four");
         list.add("five");
-
         System.out.println(list);
 
         list.remove(2);
-
         System.out.println(list);
+
+        list.remove("one");
+        System.out.println(list);
+
+        System.out.println(list.size());
+        System.out.println(list.isEmpty());
+        System.out.println(list.get( 1));
+
+        System.out.println(list.set( "six",1));
+        System.out.println(list);
+
+
+        System.out.println(list.set( "six",3));
+        System.out.println(list);
+
+
+
+
 
 
 

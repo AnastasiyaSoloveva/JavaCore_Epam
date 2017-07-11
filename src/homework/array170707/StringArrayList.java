@@ -47,4 +47,41 @@ public class StringArrayList {
         size--;
         elements[size] = null;
     }
+
+
+    public void remove(String s) {
+        for (int i = 0; i < elements.length; i++) {
+            if (s.equals(elements[i])) {
+                this.remove(i);
+            }
+
+        }
+        return;
+    }
+
+
+    public int size() {
+        return size;
+    }
+
+
+    public boolean isEmpty() {
+        return size == 0 ? true : false;
+    }
+
+    public String get(int i) {
+        if (i >= size || i < 0) {
+            return "";
+        }
+        return elements[i];
+    }
+
+
+    public boolean set(String string, int i) {
+        if (i >= size || i < 0) {
+            return false;
+        }
+        elements[i] = string;
+        return true;
+    }
 }
