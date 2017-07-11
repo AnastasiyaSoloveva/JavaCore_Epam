@@ -1,9 +1,6 @@
 package classwork.lesson170710;
 
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class UseStringLinkedList {
     public static void main(String[] args) {
 
