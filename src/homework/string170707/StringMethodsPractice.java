@@ -17,13 +17,13 @@ public class StringMethodsPractice {
         int start = 0;
         int stop = 0;
         for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) !=' ' && start == 0) {
+            if (s.charAt(i) !=' ' ) {
                 start = i;
                 break;
             }
         }
         for (int i = s.length()-1; i > 0; i--) {
-            if (s.charAt(i) !=' ' && stop == 0) {
+            if (s.charAt(i) !=' ') {
                 stop = i;
                 break;
             }
