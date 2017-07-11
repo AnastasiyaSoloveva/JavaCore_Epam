@@ -41,9 +41,18 @@ public class StringMethodsPractice {
             return s;
         }
 
+        StringBuilder newString = new StringBuilder();
+        char[] charArray = s.toCharArray();
+        for (int i = 0; i < charArray.length ; i++) {
+            if (charArray[i] == oldChar){
+                newString.append(newChar);
+            } else {
+                newString.append(charArray[i]);
+            }
 
+        }
 
-        return s;
+        return newString.toString();
     }
 }
 
