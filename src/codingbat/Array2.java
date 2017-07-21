@@ -472,5 +472,23 @@ public class Array2 {
 
     }
 
+    public int sum67(int[] nums) {
+        int sum = 0;
+        boolean sixOrSeven = false;
+        for(int i = 0; i< nums.length; i++){
+            if(nums[i] == 6){
+                sixOrSeven = true;
+            }
+            if(!sixOrSeven) {
+                sum += nums[i];
+            }
+
+            if(nums[i] == 7){
+                sixOrSeven = false;
+            }
+        }
+        return sum;
+    }
+
 
 }
