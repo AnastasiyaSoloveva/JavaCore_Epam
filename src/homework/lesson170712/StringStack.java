@@ -1,5 +1,7 @@
 package homework.lesson170712;
 
+import java.util.Arrays;
+
 public class StringStack {
 
 
@@ -17,6 +19,24 @@ public class StringStack {
         this.elements = new String[maxSize];
         this.size = 0;
     }
+
+
+    public boolean push(String string) {
+        if(size >= elements.length) { //guard condition
+            return false;   //stack overflow
+        }
+
+        elements[size++] = string;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(Arrays.copyOfRange(elements,0,size));
+
+
+    }
+
 
 
 }
