@@ -17,6 +17,11 @@ public class UseStringStack {
         System.out.println(myStack);
 
         System.out.println(SimpleUnit.assertEquals(myStack.pop(),"three"));
+        System.out.println(SimpleUnit.assertEquals(myStack.tos(),"two"));
+
+        System.out.println(myStack);
+
+
 
 
 

@@ -34,7 +34,6 @@ public class StringStack {
     public String toString() {
         return Arrays.toString(Arrays.copyOfRange(elements,0,size));
 
-
     }
 
 
@@ -49,6 +48,14 @@ public class StringStack {
         return result;
 
     }
+
+    public String tos() {
+
+        return size <= 0 ? null : elements[size - 1];
+    }
+
+
+
 
 }
 
