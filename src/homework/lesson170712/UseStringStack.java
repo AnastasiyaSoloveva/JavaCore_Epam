@@ -21,6 +21,15 @@ public class UseStringStack {
 
         System.out.println(myStack);
 
+        System.out.println(SimpleUnit.assertEquals(myStack.size(),2));
+
+        myStack.pop();
+        myStack.pop();
+
+        System.out.println(SimpleUnit.assertEquals(myStack.size(),0));
+
+
+
 
 
 
