@@ -16,7 +16,9 @@ public class UseStringStack {
         myStack.push("three");
         System.out.println(myStack);
 
-        System.out.println(SimpleUnit.assertEquals(myStack.pop(),"tree"));
+        System.out.println(SimpleUnit.assertEquals(myStack.pop(),"three"));
+
+
 
 
 

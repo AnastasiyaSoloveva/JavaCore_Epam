@@ -38,6 +38,17 @@ public class StringStack {
     }
 
 
+    public String pop() {
+
+        if(size <= 0){   // guard condition
+            return null;  // stack underflow
+        }
+
+        String result = elements[--size];
+        elements[size] = null;
+        return result;
+
+    }
 
 }
 
