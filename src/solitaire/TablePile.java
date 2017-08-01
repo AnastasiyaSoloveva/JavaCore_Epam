@@ -10,7 +10,7 @@ class TablePile extends CardPile {
         super(x, y);
         // then initialize our pile of cards
         for (int i = 0; i < c; i++) {
-            push(Solitare.deckPile.pop());
+            push(Solitaire.deckPile.pop());
         }
         // flip topmost card face up
         top().flip();
@@ -49,15 +49,15 @@ class TablePile extends CardPile {
         // else see if any suit pile can take card
         topCard = pop();
         for (int i = 0; i < 4; i++) {
-            if (Solitare.suitPile[i].canTake(topCard)) {
-                Solitare.suitPile[i].push(topCard);
+            if (Solitaire.suitPile[i].canTake(topCard)) {
+                Solitaire.suitPile[i].push(topCard);
                 return;
             }
         }
         // else see if any other table pile can take card
         for (int i = 0; i < 7; i++) {
-            if (Solitare.tableau[i].canTake(topCard)) {
-                Solitare.tableau[i].push(topCard);
+            if (Solitaire.tableau[i].canTake(topCard)) {
+                Solitaire.tableau[i].push(topCard);
                 return;
             }
         }

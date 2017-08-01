@@ -4,7 +4,7 @@ package solitaire;
 import java.applet.Applet;
 import java.awt.*;
 
-public class Solitare extends Applet {
+public class Solitaire extends Applet {
     static DeckPile deckPile;
     static DiscardPile discardPile;
     static TablePile tableau[];
@@ -13,6 +13,7 @@ public class Solitare extends Applet {
 
     @Override
     public void init() {
+        this.setBackground(new Color(0,128,0));
         // first allocate the arrays
         allPiles = new CardPile[13];
         suitPile = new SuitPile[4];
