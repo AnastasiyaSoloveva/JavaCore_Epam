@@ -33,6 +33,11 @@ public class UseDictionary {
 
         }
 
+        System.out.println(d1.delete("Anna"));
+
+
+
+
 
 
 

@@ -40,15 +40,34 @@ public class Dictionary implements Iterable<Dictionary.Pair> {
 
     }
 
-    private <T> int hash(T key) {
-        return key.hashCode() & 0x7FFFFFFF % data.length;
-    }
-
 
     public <T> T get(T key) {
         Pair pair = getPair(key);
         return pair == null ? null : (T)pair.value;
     }
+
+
+    public  <T> boolean delete(T key) {
+        int index = hash(key);
+        if (data[index] != null) {
+            for (Pair pair : data[index]) {
+                if (pair.key.equals(key)) {
+                    data[index].remove(pair);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+
+    private <T> int hash(T key) {
+        return key.hashCode() & 0x7FFFFFFF % data.length;
+    }
+
+
+
 
 
 
