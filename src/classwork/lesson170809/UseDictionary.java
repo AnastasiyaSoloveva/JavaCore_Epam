@@ -3,7 +3,7 @@ package classwork.lesson170809;
 public class UseDictionary {
     public static void main(String[] args) {
 
-        Dictionary d = new Dictionary();
+        Dictionary<String,String> d = new Dictionary();
         d.put("Pete","NY");
         d.put("John","Boston");
         d.put("Vasya","Moscow");
@@ -22,10 +22,10 @@ public class UseDictionary {
         }
 
 
-        Dictionary d1 = new Dictionary();
-        d1.put(2,6);
+        Dictionary<String, Integer> d1 = new Dictionary();
+        d1.put("John",789);
         d1.put("Anna", 456);
-        d1.put("Bob","Murka");
+        d1.put("Bob",123);
 
 
         for (Dictionary.Pair pair: d1) {
@@ -34,6 +34,8 @@ public class UseDictionary {
         }
 
         System.out.println(d1.delete("Anna"));
+
+
 
 
 
