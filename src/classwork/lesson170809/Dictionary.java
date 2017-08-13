@@ -7,23 +7,26 @@ import java.util.List;
 
 
 
-public class Dictionary implements Iterable<Dictionary.Pair> {
+public class Dictionary<K, V> implements Iterable<Dictionary.Pair> {
 
     private static final int MAX = 10;
 
-    public static class Pair<T> {
-        public  Pair(T key2, T value2) {
+    public static class Pair<K, V> {
+        public  Pair(K key2, V value2) {
             key = key2;
             value = value2;
         }
 
-        T key;
-        T value;
+        K key;
+        V value;
     }
 
     List<Pair>[] data = new List[MAX];
 
-    public  <T> void put(T key, T value) {
+
+
+    public  void put(K key, V value) {
+
         int index = hash(key);
         if (data[index] == null) {
             data[index] = new ArrayList<>();
@@ -41,13 +44,13 @@ public class Dictionary implements Iterable<Dictionary.Pair> {
     }
 
 
-    public <T> T get(T key) {
+    public V get(K key) {
         Pair pair = getPair(key);
-        return pair == null ? null : (T)pair.value;
+        return pair == null ? null : (V)pair.value;
     }
 
 
-    public  <T> boolean delete(T key) {
+    public  boolean delete(K key) {
         int index = hash(key);
         if (data[index] != null) {
             for (Pair pair : data[index]) {
@@ -61,17 +64,25 @@ public class Dictionary implements Iterable<Dictionary.Pair> {
     }
 
 
+    private Dictionary resize(){
+        Dictionary newDictionary = new Dictionary();
 
-    private <T> int hash(T key) {
+
+
+
+        return newDictionary;
+
+    }
+
+
+
+    private int hash(K key) {
         return key.hashCode() & 0x7FFFFFFF % data.length;
     }
 
 
 
-
-
-
-    private <T> Pair getPair(T key) {
+    private  Pair getPair(K key) {
         int index = hash(key);
         List<Pair> list = data[index];
         if (list == null) { // guard condition
