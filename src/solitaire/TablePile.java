@@ -5,12 +5,21 @@ import java.awt.*;
 
 class TablePile extends CardPile {
 
+    int pileHeight;
+    int count;
+
     TablePile(int x, int y, int c) {
         // initialize the parent class
         super(x, y);
         // then initialize our pile of cards
         for (int i = 0; i < c; i++) {
+            if(i == 0){
+                pileHeight = 80 + Card.height;
+            } else{
+                pileHeight+= 35;
+            }
             push(Solitaire.deckPile.pop());
+            count++;
         }
         // flip topmost card face up
         top().flip();
@@ -18,7 +27,7 @@ class TablePile extends CardPile {
 
     @Override
     public boolean canTake(Card aCard) {
-        if (empty()) {
+        if (isEmpty()) {
             return aCard.getRank() == 12;
         }
         Card topCard = top();
@@ -28,14 +37,21 @@ class TablePile extends CardPile {
 
     @Override
     public boolean includes(int clickX, int clickY) {
-        // don't test bottom of card
-        return x <= clickX && clickX <= x + Card.width &&
-                y <= clickY;
+
+        if(count > 0){
+            return x <= clickX && clickX <= x + Card.width && y <= clickY && clickY <= pileHeight;
+
+        }else{
+            return x <= clickX && clickX <= x + Card.width && y <= clickY;
+        }
+
     }
+
+
 
     @Override
     public void select(int tx, int ty) {
-        if (empty()) {
+        if (isEmpty()) {
             return;
         }
 
@@ -47,22 +63,27 @@ class TablePile extends CardPile {
         }
 
         // else see if any suit pile can take card
-        topCard = pop();
-        for (int i = 0; i < 4; i++) {
-            if (Solitaire.suitPile[i].canTake(topCard)) {
-                Solitaire.suitPile[i].push(topCard);
-                return;
-            }
-        }
-        // else see if any other table pile can take card
-        for (int i = 0; i < 7; i++) {
-            if (Solitaire.tableau[i].canTake(topCard)) {
-                Solitaire.tableau[i].push(topCard);
-                return;
-            }
-        }
-        // else put it back on our pile
-        push(topCard);
+        topCard.switchMarked();
+        Solitaire.flag = true;
+
+
+
+        //topCard = pop();
+//        for (int i = 0; i < 4; i++) {
+//            if (Solitaire.suitPile[i].canTake(topCard)) {
+//                Solitaire.suitPile[i].push(topCard);
+//                return;
+//            }
+//        }
+//        // else see if any other table pile can take card
+//        for (int i = 0; i < 7; i++) {
+//            if (Solitaire.tableau[i].canTake(topCard)) {
+//                Solitaire.tableau[i].push(topCard);
+//                return;
+//            }
+//        }
+//        // else put it back on our pile
+//        push(topCard);
     }
 
     private int stackDisplay(Graphics g, Card aCard) {

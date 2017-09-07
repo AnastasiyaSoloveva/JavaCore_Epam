@@ -4,12 +4,15 @@ package solitaire;
 import java.applet.Applet;
 import java.awt.*;
 
+
 public class Solitaire extends Applet {
     static DeckPile deckPile;
     static DiscardPile discardPile;
     static TablePile tableau[];
     static SuitPile suitPile[];
     static CardPile allPiles[];
+
+    static boolean flag;
 
     @Override
     public void init() {
@@ -19,7 +22,7 @@ public class Solitaire extends Applet {
         suitPile = new SuitPile[4];
         tableau = new TablePile[7];
         // then fill them in
-        allPiles[0] = deckPile = new DeckPile(335, 5);
+        allPiles[0] = deckPile = new DeckPile(450, 5);
         allPiles[1] = discardPile = new DiscardPile(268, 5);
         for (int i = 0; i < 4; i++) {
             allPiles[2 + i] = suitPile[i] =
@@ -42,11 +45,30 @@ public class Solitaire extends Applet {
     public boolean mouseDown(Event evt, int x, int y) {
         for (int i = 0; i < 13; i++) {
             if (allPiles[i].includes(x, y)) {
-                allPiles[i].select(x, y);
+                if(!flag) {
+                    allPiles[i].select(x, y);
+                } else {
+                    CardPile pileFrom = null;
+                    for (int j = 0; j < 13; j++) {
+                        if (allPiles[j].top() != null && allPiles[j].top().isMarked()) {
+                            pileFrom = allPiles[j];
+                        }
+                    }
+
+                    if (pileFrom != null && allPiles[i].canTake(pileFrom.top())) {
+                        pileFrom.top().switchMarked();
+                        allPiles[i].push(pileFrom.pop());
+                    }
+                    flag = !flag;
+                }
                 repaint();
                 return true;
             }
         }
         return true;
     }
+
+
+
+
 }

@@ -13,6 +13,9 @@ class Card {
     final static int width = 50;
     final static int height = 70;
 
+    final static int marked_width = 150;
+    final static int marked_height = 180;
+
     final static int red = 0;
     final static int black = 1;
 
@@ -27,6 +30,7 @@ class Card {
     private boolean faceup;
     private int rank;
     private int suit;
+    private boolean marked;
 
     Card link;
 
@@ -64,12 +68,27 @@ class Card {
     }
 
 
+   // добавить в конечный файл!!!
+    public void switchMarked() {
+        this.marked = !marked;
+    }
+
+    public boolean isMarked() { return marked; }
+
+
     public void draw(Graphics g, int x, int y) {
 
         // clear rectangle, draw border
         g.clearRect(x, y, width, height);
-        g.setColor(Color.black);
+        if(marked){
+            g.setColor(Color.red);
+
+        } else{
+            g.setColor(Color.black);
+
+        }
         g.drawRect(x, y, width, height);
+
         // draw body of card
         if (isFaceUp()) {
             if (getColor() == red) {
