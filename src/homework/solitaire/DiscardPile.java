@@ -16,7 +16,7 @@ class DiscardPile extends CardPile {
 
     @Override
     public void select(int tx, int ty) {
-        if (empty()) {
+        if (isEmpty()) {
             return;
         }
         Card topCard = pop();

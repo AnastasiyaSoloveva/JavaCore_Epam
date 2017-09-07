@@ -17,7 +17,7 @@ class TablePile extends CardPile {
 
     @Override
     public boolean canTake(Card aCard) {
-        if (empty()) {
+        if (isEmpty()) {
             return aCard.getRank() == 12;
         }
         Card topCard = top();
@@ -33,7 +33,7 @@ class TablePile extends CardPile {
 
     @Override
     public void select(int tx, int ty) {
-        if (empty()) {
+        if (isEmpty()) {
             return;
         }
 
@@ -44,23 +44,26 @@ class TablePile extends CardPile {
             return;
         }
 
-        // else see if any suit pile can take card
-        topCard = pop();
-        for (int i = 0; i < 4; i++) {
-            if (Solitare.suitPile[i].canTake(topCard)) {
-                Solitare.suitPile[i].push(topCard);
-                return;
-            }
-        }
-        // else see if any other table pile can take card
-        for (int i = 0; i < 7; i++) {
-            if (Solitare.tableau[i].canTake(topCard)) {
-                Solitare.tableau[i].push(topCard);
-                return;
-            }
-        }
-        // else put it back on our pile
-        push(topCard);
+        topCard.switchMarked();
+        Solitare.flag = true;
+
+//        // else see if any suit pile can take card
+//        topCard = pop();
+//        for (int i = 0; i < 4; i++) {
+//            if (Solitare.suitPile[i].canTake(topCard)) {
+//                Solitare.suitPile[i].push(topCard);
+//                return;
+//            }
+//        }
+//        // else see if any other table pile can take card
+//        for (int i = 0; i < 7; i++) {
+//            if (Solitare.tableau[i].canTake(topCard)) {
+//                Solitare.tableau[i].push(topCard);
+//                return;
+//            }
+//        }
+//        // else put it back on our pile
+//        push(topCard);
     }
 
     private int stackDisplay(Graphics g, Card aCard) {

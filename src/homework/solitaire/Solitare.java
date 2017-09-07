@@ -1,8 +1,7 @@
 package homework.solitaire;
 
 import java.applet.Applet;
-import java.awt.Event;
-import java.awt.Graphics;
+import java.awt.*;
 
 public class Solitare extends Applet {
     static DeckPile deckPile;
@@ -11,14 +10,17 @@ public class Solitare extends Applet {
     static SuitPile suitPile[];
     static CardPile allPiles[];
 
+    static boolean flag;
+
     @Override
     public void init() {
+        this.setBackground(new Color(0,128,0));
         // first allocate the arrays
         allPiles = new CardPile[13];
         suitPile = new SuitPile[4];
         tableau = new TablePile[7];
         // then fill them in
-        allPiles[0] = deckPile = new DeckPile(335, 5);
+        allPiles[0] = deckPile = new DeckPile(350, 5);
         allPiles[1] = discardPile = new DiscardPile(268, 5);
         for (int i = 0; i < 4; i++) {
             allPiles[2 + i] = suitPile[i] = new SuitPile(15 + 60 * i, 5);
