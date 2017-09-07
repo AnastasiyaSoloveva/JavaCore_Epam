@@ -26,7 +26,7 @@ class DeckPile extends CardPile {
             // then add the card found there
             push(pileOne.pop());
             // then put the decks back together
-            while (!pileTwo.empty()) {
+            while (!pileTwo.isEmpty()) {
                 pileOne.push(pileTwo.pop());
             }
         }
@@ -34,7 +34,13 @@ class DeckPile extends CardPile {
 
     @Override
     public void select(final int tx, final int ty) {
-        if (empty()) {
+        if (isEmpty()) {
+            while(!Solitare.discardPile.isEmpty()){
+                Card card = Solitare.discardPile.pop();
+                card.flip();
+                this.push(card);
+            }
+
             return;
         }
         Solitare.discardPile.push(this.pop());
