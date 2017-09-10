@@ -19,7 +19,9 @@ class DiscardPile extends CardPile {
         if (isEmpty()) {
             return;
         }
+
         Card topCard = pop();
+
         for (int i = 0; i < 4; i++) {
             if (Solitare.suitPile[i].canTake(topCard)) {
                 Solitare.suitPile[i].push(topCard);

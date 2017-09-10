@@ -1,68 +1,70 @@
 package homework.solitaire;
 
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
+import java.util.LinkedList;
 
+// описывает абстрактную стопку
 class CardPile {
 
     // coordinates of the card pile
     protected int x;
     protected int y;
-    private Card firstCard;
 
-    CardPile(final int xCoord, final int yCoord) {
+    protected LinkedList<Card> cardPile;
+
+
+
+    CardPile(int xCoord, int yCoord) {
         x = xCoord;
         y = yCoord;
-        firstCard = null;
+        cardPile = new LinkedList<>();
+
+
     }
 
     // access to cards are not overridden
 
     public Card top() {
-        return firstCard;
+        return cardPile.getLast();
     }
 
     public boolean isEmpty() {
-        return firstCard == null;
+        return cardPile.isEmpty();
     }
 
-    public void push(final Card aCard) {
-        aCard.link = firstCard;
-        firstCard = aCard;
+    public void push(Card aCard) {
+        cardPile.addLast(aCard);
     }
 
     public Card pop() {
-        Card result = null;
-        if (firstCard != null) {
-            result = firstCard;
-            firstCard = firstCard.link;
-        }
-        return result;
+        return cardPile.removeLast();
     }
 
     // the following are sometimes overridden
 
-    public boolean includes(final int clickX, final int clickY) {
-        return x <= clickX && clickX <= x + Card.width && y <= clickY
-                && clickY <= y + Card.height;
+    public boolean includes(int clickX, int clickY) {
+        return x <= clickX && clickX <= x + Card.width &&
+                y <= clickY && clickY <= y + Card.height;
     }
 
-    public void select(final int tx, final int ty) {
+    public void select(int tx, int ty) {
         // do nothing
     }
 
 
-    public void display(final Graphics g) {
+
+    public void display(Graphics g) {
         g.setColor(Color.black);
-        if (firstCard == null) {
+        if (cardPile.isEmpty()) {
             g.drawRect(x, y, Card.width, Card.height);
         } else {
-            firstCard.draw(g, x, y);
+            cardPile.getLast().draw(g, x, y);
         }
     }
 
-    public boolean canTake(final Card aCard) {
+    public boolean canTake(Card aCard) {
         return false;
-    }
+    } //  можно ли в стопку положить карту
+
 
 }

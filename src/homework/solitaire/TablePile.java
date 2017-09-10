@@ -1,6 +1,7 @@
 package homework.solitaire;
 
 import java.awt.Graphics;
+import java.util.ListIterator;
 
 class TablePile extends CardPile {
 
@@ -44,41 +45,37 @@ class TablePile extends CardPile {
             return;
         }
 
-        topCard.switchMarked();
-        Solitare.flag = true;
-
-//        // else see if any suit pile can take card
-//        topCard = pop();
-//        for (int i = 0; i < 4; i++) {
-//            if (Solitare.suitPile[i].canTake(topCard)) {
-//                Solitare.suitPile[i].push(topCard);
-//                return;
-//            }
-//        }
-//        // else see if any other table pile can take card
-//        for (int i = 0; i < 7; i++) {
-//            if (Solitare.tableau[i].canTake(topCard)) {
-//                Solitare.tableau[i].push(topCard);
-//                return;
-//            }
-//        }
-//        // else put it back on our pile
-//        push(topCard);
-    }
-
-    private int stackDisplay(Graphics g, Card aCard) {
-        int localy;
-        if (aCard == null) {
-            return y;
+        // else see if any suit pile can take card
+        topCard = pop();
+        for (int i = 0; i < 4; i++) {
+            if (Solitare.suitPile[i].canTake(topCard)) {
+                Solitare.suitPile[i].push(topCard);
+                return;
+            }
         }
-        localy = stackDisplay(g, aCard.link);
-        aCard.draw(g, x, localy);
-        return localy + 35;
+        // else see if any other table pile can take card
+        for (int i = 0; i < 7; i++) {
+            if (Solitare.tableau[i].canTake(topCard)) {
+                Solitare.tableau[i].push(topCard);
+                return;
+            }
+        }
+        // else put it back on our pile
+        push(topCard);
     }
+
 
     @Override
     public void display(Graphics g) {
-        stackDisplay(g, top());
-    }
+        int localy = y;
+        ListIterator<Card> iter = cardPile.listIterator(0);
+        if (!isEmpty()) {
+            while (iter.hasNext()) {
+                iter.next().draw(g, x, localy);
+                localy += 25;
+            }
 
+
+        }
+    }
 }

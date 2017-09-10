@@ -10,7 +10,7 @@ public class Solitare extends Applet {
     static SuitPile suitPile[];
     static CardPile allPiles[];
 
-    static boolean flag;
+
 
     @Override
     public void init() {
@@ -48,4 +48,5 @@ public class Solitare extends Applet {
         }
         return true;
     }
+
 }
