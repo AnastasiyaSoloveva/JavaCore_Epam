@@ -33,7 +33,7 @@ class DeckPile extends CardPile {
     }
 
     @Override
-    public void select(final int tx, final int ty) {
+    public void select(final int tx, final int ty, int index) {
         if (isEmpty()) {
             while(!Solitare.discardPile.isEmpty()){
                 Card card = Solitare.discardPile.pop();

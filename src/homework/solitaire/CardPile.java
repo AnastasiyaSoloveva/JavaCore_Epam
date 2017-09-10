@@ -12,25 +12,30 @@ class CardPile {
 
     protected LinkedList<Card> cardPile;
 
+    private boolean isMarked;
+
 
 
     CardPile(int xCoord, int yCoord) {
         x = xCoord;
         y = yCoord;
         cardPile = new LinkedList<>();
-
-
     }
+
+
 
     // access to cards are not overridden
 
     public Card top() {
-        return cardPile.getLast();
+
+            return cardPile.getLast();
+
     }
 
     public boolean isEmpty() {
         return cardPile.isEmpty();
     }
+
 
     public void push(Card aCard) {
         cardPile.addLast(aCard);
@@ -40,6 +45,26 @@ class CardPile {
         return cardPile.removeLast();
     }
 
+
+    public int size(){
+        return cardPile.size();
+    }
+
+
+    public boolean isMarked() {
+        return isMarked;
+    }
+
+
+    public void setMark() {
+        isMarked = true;
+    }
+
+    public void takeOffMark() {
+        isMarked = false;
+    }
+
+
     // the following are sometimes overridden
 
     public boolean includes(int clickX, int clickY) {
@@ -47,10 +72,12 @@ class CardPile {
                 y <= clickY && clickY <= y + Card.height;
     }
 
-    public void select(int tx, int ty) {
+
+
+
+    public void select(int tx, int ty,int index) {
         // do nothing
     }
-
 
 
     public void display(Graphics g) {
@@ -58,7 +85,7 @@ class CardPile {
         if (cardPile.isEmpty()) {
             g.drawRect(x, y, Card.width, Card.height);
         } else {
-            cardPile.getLast().draw(g, x, y);
+            cardPile.getLast().draw(g, x, y, isMarked());
         }
     }
 

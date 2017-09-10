@@ -25,8 +25,8 @@ class Card {
 
 
 
-    // constructor
 
+    // constructor
     Card(final int sv, final int rv) {
         suit = sv;
         rank = rv;
@@ -34,14 +34,14 @@ class Card {
 
     }
 
-    public void draw(final Graphics g, final int x, final int y) {
+    public void draw(final Graphics g, final int x, final int y, boolean isMarked) {
         // clear rectangle, draw border
         g.clearRect(x, y, width, height);
-       // if(marked){
-     //       g.setColor(Color.red);
-       // } else{
+        if(isMarked){
+           g.setColor(Color.red);
+        } else{
             g.setColor(Color.black);
-     //   }
+        }
 
         g.drawRect(x, y, width, height);
         // draw body of card
@@ -111,6 +111,7 @@ class Card {
     public void flip() {
         faceup = !faceup;
     }
+
 
     public int getRank() {
         return rank;
