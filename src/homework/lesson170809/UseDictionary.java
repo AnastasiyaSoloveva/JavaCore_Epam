@@ -1,4 +1,4 @@
-package classwork.lesson170809;
+package homework.lesson170809;
 
 public class UseDictionary {
     public static void main(String[] args) {

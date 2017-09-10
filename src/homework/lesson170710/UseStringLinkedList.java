@@ -1,4 +1,4 @@
-package classwork.lesson170710;
+package homework.lesson170710;
 
 
 public class UseStringLinkedList {
